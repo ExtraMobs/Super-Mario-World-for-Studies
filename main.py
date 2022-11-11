@@ -1,5 +1,6 @@
 import pygame
-from gameengine import GameEngine
+
+from gameengine import GameEngine, Window, Display
 
 
 class SpriteTest(pygame.sprite.DirtySprite):
@@ -22,15 +23,12 @@ class GameManager(pygame.sprite.LayeredDirty):
 
 class Game:
     def __init__(self):
-        GameEngine.init()
 
-        GameEngine.set_scale(4)
+        Window.set_title("Super Mario World [Python]")
+        Display.set_scale(4)
 
-        GameEngine.set_window_title("Super Mario World [Python]")
-        GameEngine.set_window_size((720, 405))
-
+        GameEngine.init((720, 405))
         GameEngine.set_framerate(60)
-
         GameEngine.set_current_scene(GameManager())
 
     def run(self):
