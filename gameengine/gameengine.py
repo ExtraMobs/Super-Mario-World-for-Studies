@@ -1,7 +1,4 @@
-from pprint import pp
-
 import pygame
-import pygame._sdl2
 
 from .display import Display
 from .mouse import Mouse
@@ -23,8 +20,13 @@ class GameEngine:
     def init(cls, window_size, *flags):
         cls.clock = pygame.time.Clock()
 
-        Window.set_size(window_size, *flags)
-        Display.set_display_from_window()
+        cls.change_window_size(window_size, *flags)
+
+    @classmethod
+    def change_window_size(cls, size, *flags, update_display=True):
+        Window.set_size(size, *flags)
+        if update_display:
+            Display.set_display_from_window()
 
     @classmethod
     def set_framerate(cls, framerate):

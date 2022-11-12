@@ -32,16 +32,16 @@ class GameResources:
             surface = surface.convert_alpha()
         else:
             surface = surface.convert()
-        cls.add_surface(name, surface, copy=False)
+        cls.add_surface(name, surface)
 
     @classmethod
-    def add_surface(cls, name, surface, copy=True):
+    def add_surface(cls, name, surface, copy=False):
         if copy:
             surface = surface.copy()
         cls.surfaces[name] = surface
 
     @classmethod
-    def get_surface(cls, name, copy=True):
+    def get_surface(cls, name, copy=False) -> pygame.Surface:
         surface = cls.surfaces[name]
         if copy:
             return surface.copy()
