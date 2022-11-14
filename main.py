@@ -1,21 +1,19 @@
 import pygame
 
-from gameengine import Display, GameEngine, Window, GameResources, Animations
+from assets import load_assets
+from gameengine import Display, GameEngine, GameResources, Window
 
 
 class SpriteTest(pygame.sprite.DirtySprite):
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
-        self.image = GameResources.get_surface("Mario SpriteSheet")
+        self.image = GameResources.Global.get_global_data("assets").mario.small._idle
         self.rect = self.image.get_rect()
 
 
 class GameManager(pygame.sprite.LayeredDirty):
     def __init__(self) -> None:
-        super().__init__()
-
-        self.sprite_test = SpriteTest()
-        self.add(self.sprite_test)
+        super().__init__(SpriteTest())
 
     def update(self) -> None:
         super().update()
@@ -31,14 +29,10 @@ class Game:
 
         GameEngine.init((720, 405))
 
-        self.load_sprites()
+        GameResources.Global.set_global_data("assets", load_assets())
 
         GameEngine.set_framerate(60)
         GameEngine.set_current_scene(GameManager())
-
-    def load_sprites(self):
-        
-        # Animations.add_animation_data("Mario", Animations.AREA_TYPE, ())
 
     def run(self):
         GameEngine.start_loop()
