@@ -1,4 +1,3 @@
-import os
 import pygame
 
 from gameengine import Display, GameEngine, Window, GameResources, Animations
@@ -38,20 +37,7 @@ class Game:
         GameEngine.set_current_scene(GameManager())
 
     def load_sprites(self):
-        playable_characters = os.path.abspath("assets\Playable Characters")
-        GameResources.add_surface_from_file(
-            "Mario SpriteSheet",
-            os.path.join(playable_characters, "SNES - Super Mario World - Mario.png"),
-        )
-        GameResources.add_surface_from_file(
-            "Luigi SpriteSheet",
-            os.path.join(
-                playable_characters, "SNES - Super Mario World - Luigi All-Stars.png"
-            ),
-        )
-
-        mario_spritesheet = GameResources.get_surface("Mario SpriteSheet")
-
+        
         # Animations.add_animation_data("Mario", Animations.AREA_TYPE, ())
 
     def run(self):
