@@ -1,5 +1,3 @@
-from pprint import pp
-
 import pygame
 import pygame._sdl2
 
