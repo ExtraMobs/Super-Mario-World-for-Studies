@@ -115,6 +115,8 @@ class Game:
             (8, 3370),  # 48
         ]
         names = [None for _ in range(len(playable_pos))]
+
+        # small
         names[0] = [
             {"path": "sprites/mario/small/idle.png", "qtd": 1},
             {"path": "sprites/mario/small/look up.png", "qtd": 1},
@@ -164,12 +166,73 @@ class Game:
             {"path": "sprites/mario/small/cutscenes/bowsers castle.png", "qtd": 2},
         ]
         names[5] = [
-            {"path": "sprites/mario/small/cutscenes/castle 3 assemble.png", "qtd": 11},
-            {"path": "sprites/mario/small/cutscenes/castle 6 1.png", "qtd": 4},
+            {"path": "sprites/mario/small/cutscenes assembled/castle 3.png", "qtd": 11},
+            {"path": "sprites/mario/small/cutscenes assembled/castle 6 1.png", "qtd": 4},
         ]
         names[6] = [
-            {"path": "sprites/mario/small/cutscenes/castle 6 2.png", "qtd": 16},
+            {"path": "sprites/mario/small/cutscenes assembled/castle 6 2.png", "qtd": 16},
         ]
+
+        # big
+        names[7] = [
+            {"path": "sprites/mario/big/idle.png", "qtd": 1},
+            {"path": "sprites/mario/big/look up.png", "qtd": 1},
+            {"path": "sprites/mario/big/duck.png", "qtd": 1},
+            {"path": "sprites/mario/big/walk.png", "qtd": 3},
+            {"path": "sprites/mario/big/run.png", "qtd": 3},
+            {"path": "sprites/mario/big/wall run.png", "qtd": 4},
+            {"path": "sprites/mario/big/skid.png", "qtd": 1},
+        ]
+        names[8] = [
+            {"path": "sprites/mario/big/vertical pipe.png", "qtd": 1},
+            {"path": "sprites/mario/big/jump.png", "qtd": 1},
+            {"path": "sprites/mario/big/fall.png", "qtd": 1},
+            {"path": "sprites/mario/big/run jump.png", "qtd": 1},
+            {"path": "sprites/mario/big/spin jump.png", "qtd": 4},
+            {"path": "sprites/mario/big/slide.png", "qtd": 1},
+            {"path": "sprites/mario/big/kick.png", "qtd": 1},
+            {"path": "sprites/mario/big/swim.png", "qtd": 3},
+            {"path": "sprites/mario/big/victory.png", "qtd": 1},
+        ]
+        names[9] = [
+            {"path": "sprites/mario/big/hold/idle.png", "qtd": 1},
+            {"path": "sprites/mario/big/hold/look up.png", "qtd": 1},
+            {"path": "sprites/mario/big/hold/duck.png", "qtd": 1},
+            {"path": "sprites/mario/big/hold/walk run jump.png", "qtd": 3},
+            {"path": "sprites/mario/big/hold/swim.png", "qtd": 3},
+            {"path": "sprites/mario/big/riding yoshi/idle.png", "qtd": 1},
+            {"path": "sprites/mario/big/riding yoshi/eat.png", "qtd": 2},
+            {"path": "sprites/mario/big/riding yoshi/unused.png", "qtd": 1},
+            {"path": "sprites/mario/big/riding yoshi/turn.png", "qtd": 1},
+            {"path": "sprites/mario/big/riding yoshi/pipe horizontal.png", "qtd": 1},
+            {"path": "sprites/mario/big/riding yoshi/victory.png", "qtd": 1},
+        ]
+        names[10] = [
+            {"path": "sprites/mario/big/climbing vine net/idle.png", "qtd": 2},
+            {"path": "sprites/mario/big/climbing vine net/punch.png", "qtd": 2},
+            {"path": "sprites/mario/big/climbing vine net/turn.png", "qtd": 5},
+            {"path": "sprites/mario/big/other/p ballon.png", "qtd": 1},
+            {"path": "sprites/mario/big/other/cape glide.png", "qtd": 6},
+            {"path": "sprites/mario/big/other/fireball.png", "qtd": 1},
+        ]
+        names[11] = [
+            {"path": "sprites/mario/big/cutscenes/castle 3.png", "qtd": 3},
+            {"path": "sprites/mario/big/cutscenes/castle 4.png", "qtd": 2},
+            {"path": "sprites/mario/big/cutscenes/castle 5.png", "qtd": 3},
+            {"path": "sprites/mario/big/cutscenes/castle 6.png", "qtd": 3},
+            {"path": "sprites/mario/big/cutscenes/bowsers castle.png", "qtd": 2},
+        ]
+        names[12] = [
+            {"path": "sprites/mario/big/cutscenes assembled/castle 3.png", "qtd": 11},
+            {"path": "sprites/mario/big/cutscenes assembled/castle 6 1.png", "qtd": 4},
+        ]
+        names[13] = [
+            {"path": "sprites/mario/big/cutscenes assembled/castle 6 2.png", "qtd": 16},
+        ]
+        
+        # caped
+        
+        
         for i, pos in enumerate(playable_pos):
             names_index = 0
             count = 0
@@ -193,12 +256,13 @@ class Game:
                 elif i in (6, 13):
                     rect_size = (52, 78)
                 elif i == 7:
-                    if x == 13:
-                        sub_pos = (708, 576)
-                    elif x >= 14:
-                        sub_pos = (800, 576)
-                    elif x >= 9:
-                        rect_size = (54, 55)
+                    if 8 < x < 13:
+                        rect_size = (58, 55)
+                        sub_x += (x-9) * 6
+                        sub_pos = (sub_x, pos[1])
+                    elif x > 12:
+                        sub_x += 4*6
+                        sub_pos = (sub_x, pos[1])
                 elif i == 12:
                     if x >= 15:
                         sub_pos = (800, 576)
@@ -262,6 +326,7 @@ class Game:
                             w += sprite.get_width()
                             h = max(sprite.get_height(), h)
                         sprite_sheet = pygame.Surface((w, h)).convert_alpha()
+                        sprite_sheet.fill((0,0,0,0))
                         x_path = 0
                         for sprite in sprites:
                             sprite_sheet.blit(sprite, (x_path, 0))
