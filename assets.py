@@ -1,14 +1,15 @@
 import os
 
-from gameengine import GameResources
+from gameengine import Animations, GameResources
 
+assets = None
 
 class Assets:
     def __init__(self, dict_data: dict):
         for key, item in dict_data.items():
             if type(item) == dict:
                 item = Assets(item)
-            setattr(self, key, item)
+            setattr(self.__class__, key, item)
 
 
 def load_assets_to_dict(path):
@@ -23,5 +24,13 @@ def load_assets_to_dict(path):
     return folder_dict
 
 
+def build_animations():
+    # Animations.add_animation_data("mario_small_walk", Animations.AREA_TYPE, assets.mario.small._walk, (0,0,48,48))
+    Animations.add_animation_data("mario_small_walk", Animations.AREA_TYPE, assets.mario.small._walk, (48,0,48,48))
+    Animations.add_animation_data("mario_small_walk", Animations.AREA_TYPE, assets.mario.small._walk, (96,0,48,48))
+
+
 def load_assets():
-    return Assets(load_assets_to_dict(os.path.abspath("assets")))
+    global assets
+    assets = Assets(load_assets_to_dict(os.path.abspath("assets")))
+    build_animations()

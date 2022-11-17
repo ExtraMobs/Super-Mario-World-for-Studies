@@ -5,6 +5,7 @@ import pygame
 
 class Display:
     display_surface = None
+    background = None
     ref_scale = pygame.math.Vector2(1, 1)
 
     @classmethod
@@ -18,8 +19,9 @@ class Display:
                     math.ceil(window_size[1] / cls.ref_scale.y),
                 )
             ).convert_alpha()
+
         except pygame.error:
-            ...
+            pass
 
     @classmethod
     def get_scale(self):
@@ -40,5 +42,13 @@ class Display:
         return cls.display_surface.get_size()
 
     @classmethod
-    def set_display_from_window(cls):
+    def update_display_from_window(cls):
         cls.set_scale(cls.ref_scale.xy)
+
+    @classmethod
+    def set_background(cls, background_surface):
+        cls.background = background_surface
+
+    @classmethod
+    def update_background_from_display(cls):
+        cls.background = cls.display_surface.convert()

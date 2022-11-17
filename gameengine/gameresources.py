@@ -16,17 +16,6 @@ class GameResources:
         def get_scene(cls, name):
             return cls.scenes[name]()
 
-    class Animation:
-        animations = {}
-
-        @classmethod
-        def add_animation_data(cls, name, animation):
-            cls.animations[name] = animation
-
-        @classmethod
-        def get_animation_data(cls, name):
-            return cls.animations[name]
-
     class Surface:
         surfaces = {}
 
@@ -49,14 +38,14 @@ class GameResources:
         @classmethod
         def add_surface(cls, name, surface, copy=False):
             if copy:
-                surface = surface.copy()
+                surface = surface.convert_alpha()
             cls.surfaces[name] = surface
 
         @classmethod
         def get_surface(cls, name, copy=False) -> pygame.Surface:
             surface = cls.surfaces[name]
             if copy:
-                return surface.copy()
+                return surface.convert_alpha()
             else:
                 return surface
 
@@ -69,14 +58,3 @@ class GameResources:
             if alpha:
                 flag |= pygame.SRCALPHA
             return pygame.Surface(size, flag)
-
-    class Global:
-        global_data = {}
-
-        @classmethod
-        def set_global_data(cls, name, value):
-            cls.global_data[name] = value
-
-        @classmethod
-        def get_global_data(cls, name):
-            return cls.global_data[name]

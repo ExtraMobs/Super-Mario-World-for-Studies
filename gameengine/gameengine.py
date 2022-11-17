@@ -9,24 +9,17 @@ pygame.init()
 
 class GameEngine:
     display = None
-    clock = None
-    current_scene = None
-    background = None
+    scene = None
     request_quit = False
-    framerate = None
-    deltatime = 1
+    framerate = 30
+    deltatime = 1/framerate
+    clock = pygame.time.Clock()
 
     @classmethod
-    def init(cls, window_size, *flags):
-        cls.clock = pygame.time.Clock()
-
-        cls.change_window_size(window_size, *flags)
-
-    @classmethod
-    def change_window_size(cls, size, *flags, update_display=True):
+    def set_window_size(cls, size, *flags, update_display=True):
         Window.set_size(size, *flags)
         if update_display:
-            Display.set_display_from_window()
+            Display.update_display_from_window()
 
     @classmethod
     def set_framerate(cls, framerate):
@@ -48,8 +41,8 @@ class GameEngine:
         cls.deltatime = cls.clock.tick(cls.framerate) / 1000
 
     @classmethod
-    def set_current_scene(cls, scene):
-        cls.current_scene = scene
+    def set_scene(cls, scene):
+        cls.scene = scene
 
     @classmethod
     def quit(cls):
@@ -59,17 +52,17 @@ class GameEngine:
     def start_loop(cls):
         while True:
             cls.update_events()
-            cls.current_scene.update()
+            cls.scene.update()
 
             if Window._sdl2_window.size != Display.get_size():
-                cls.current_scene.draw(Display.display_surface, cls.background)
+                cls.scene.draw(Display.display_surface, Display.background)
                 pygame.transform.scale(
                     Display.display_surface,
                     Window._sdl2_window.size,
                     Window.window_surface,
                 )
             else:
-                cls.current_scene.draw(Window.window_surface, cls.background)
+                cls.scene.draw(Window.window_surface, Display.background)
 
             pygame.display.update()
             cls.tick_clock()
