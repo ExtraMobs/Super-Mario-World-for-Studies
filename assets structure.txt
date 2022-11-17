@@ -1,0 +1,169 @@
+📦mario
+ ┣ 📂big
+ ┃ ┣ 📂climbing vine net
+ ┃ ┃ ┣ 📜_idle
+ ┃ ┃ ┣ 📜_punch
+ ┃ ┃ ┗ 📜_turn
+ ┃ ┣ 📂cutscenes
+ ┃ ┃ ┣ 📜_bowsers castle
+ ┃ ┃ ┣ 📜_castle 3
+ ┃ ┃ ┣ 📜_castle 4
+ ┃ ┃ ┣ 📜_castle 5
+ ┃ ┃ ┗ 📜_castle 6
+ ┃ ┣ 📂cutscenes assembled
+ ┃ ┃ ┣ 📜_castle 3
+ ┃ ┃ ┣ 📜_castle 6 1
+ ┃ ┃ ┗ 📜_castle 6 2
+ ┃ ┣ 📂hold
+ ┃ ┃ ┣ 📜_duck
+ ┃ ┃ ┣ 📜_idle
+ ┃ ┃ ┣ 📜_look up
+ ┃ ┃ ┣ 📜_swim
+ ┃ ┃ ┗ 📜_walk run jump
+ ┃ ┣ 📂other
+ ┃ ┃ ┣ 📜_cape glide
+ ┃ ┃ ┣ 📜_fireball
+ ┃ ┃ ┗ 📜_p balloon
+ ┃ ┣ 📂riding yoshi
+ ┃ ┃ ┣ 📜_eat
+ ┃ ┃ ┣ 📜_idle
+ ┃ ┃ ┣ 📜_pipe horizontal
+ ┃ ┃ ┣ 📜_turn
+ ┃ ┃ ┣ 📜_unused
+ ┃ ┃ ┗ 📜_victory
+ ┃ ┣ 📜_duck
+ ┃ ┣ 📜_fall
+ ┃ ┣ 📜_idle
+ ┃ ┣ 📜_jump
+ ┃ ┣ 📜_kick
+ ┃ ┣ 📜_look up
+ ┃ ┣ 📜_run jump
+ ┃ ┣ 📜_run
+ ┃ ┣ 📜_skid
+ ┃ ┣ 📜_slide
+ ┃ ┣ 📜_spin jump
+ ┃ ┣ 📜_swim
+ ┃ ┣ 📜_vertical pipe
+ ┃ ┣ 📜_victory
+ ┃ ┣ 📜_walk
+ ┃ ┗ 📜_wall run
+ ┣ 📂cape
+ ┃ ┣ 📂climbing vine net
+ ┃ ┃ ┣ 📜_punch back
+ ┃ ┃ ┗ 📜_turn
+ ┃ ┣ 📂other
+ ┃ ┃ ┗ 📜_unused
+ ┃ ┣ 📂riding yoshi
+ ┃ ┃ ┣ 📜_eat
+ ┃ ┃ ┗ 📜_idle
+ ┃ ┣ 📜_fall duck
+ ┃ ┣ 📜_fall
+ ┃ ┣ 📜_front back
+ ┃ ┣ 📜_idle
+ ┃ ┣ 📜_move
+ ┃ ┣ 📜_stop
+ ┃ ┗ 📜_wall run
+ ┣ 📂caped
+ ┃ ┣ 📂climbing vine net
+ ┃ ┃ ┣ 📜_idle
+ ┃ ┃ ┣ 📜_punch
+ ┃ ┃ ┗ 📜_turn
+ ┃ ┣ 📂cutscenes
+ ┃ ┃ ┣ 📜_bowsers castle
+ ┃ ┃ ┣ 📜_castle 3
+ ┃ ┃ ┣ 📜_castle 4
+ ┃ ┃ ┣ 📜_castle 5
+ ┃ ┃ ┗ 📜_castle 6
+ ┃ ┣ 📂cutscenes assembled
+ ┃ ┃ ┣ 📜_castle 3 1
+ ┃ ┃ ┣ 📜_castle 3 2
+ ┃ ┃ ┣ 📜_castle 3 3
+ ┃ ┃ ┣ 📜_castle 6 1
+ ┃ ┃ ┗ 📜_castle 6 2
+ ┃ ┣ 📂hold
+ ┃ ┃ ┣ 📜_duck
+ ┃ ┃ ┣ 📜_idle
+ ┃ ┃ ┣ 📜_look up
+ ┃ ┃ ┣ 📜_swim 1
+ ┃ ┃ ┣ 📜_swim 2
+ ┃ ┃ ┣ 📜_walk run jump 1
+ ┃ ┃ ┗ 📜_walk run jump 2
+ ┃ ┣ 📂other
+ ┃ ┃ ┣ 📜_cape glide
+ ┃ ┃ ┣ 📜_fireball
+ ┃ ┃ ┗ 📜_fixed
+ ┃ ┣ 📂riding yoshi
+ ┃ ┃ ┣ 📜_eat 1
+ ┃ ┃ ┣ 📜_eat 2
+ ┃ ┃ ┣ 📜_idle
+ ┃ ┃ ┣ 📜_pipe horizontal
+ ┃ ┃ ┣ 📜_turn
+ ┃ ┃ ┣ 📜_unused
+ ┃ ┃ ┗ 📜_victory
+ ┃ ┣ 📜_cape spin spin jump fall
+ ┃ ┣ 📜_cape spin spin jump
+ ┃ ┣ 📜_duck
+ ┃ ┣ 📜_fall
+ ┃ ┣ 📜_idle
+ ┃ ┣ 📜_jump
+ ┃ ┣ 📜_kick
+ ┃ ┣ 📜_look up
+ ┃ ┣ 📜_pipe vertical
+ ┃ ┣ 📜_run 1
+ ┃ ┣ 📜_run 2
+ ┃ ┣ 📜_run jump
+ ┃ ┣ 📜_skid
+ ┃ ┣ 📜_slide
+ ┃ ┣ 📜_swim 1
+ ┃ ┣ 📜_swim 2
+ ┃ ┣ 📜_victory
+ ┃ ┣ 📜_walk 1
+ ┃ ┣ 📜_walk 2
+ ┃ ┗ 📜_wall run
+ ┗ 📂small
+ ┃ ┣ 📂climbing vine net
+ ┃ ┃ ┣ 📜_idle
+ ┃ ┃ ┣ 📜_punch
+ ┃ ┃ ┗ 📜_turn
+ ┃ ┣ 📂cutscenes
+ ┃ ┃ ┣ 📜_bowsers castle
+ ┃ ┃ ┣ 📜_castle 3
+ ┃ ┃ ┣ 📜_castle 4
+ ┃ ┃ ┣ 📜_castle 5
+ ┃ ┃ ┗ 📜_castle 6
+ ┃ ┣ 📂cutscenes assembled
+ ┃ ┃ ┣ 📜_castle 3
+ ┃ ┃ ┣ 📜_castle 6 1
+ ┃ ┃ ┗ 📜_castle 6 2
+ ┃ ┣ 📂hold
+ ┃ ┃ ┣ 📜_duck
+ ┃ ┃ ┣ 📜_idle
+ ┃ ┃ ┣ 📜_look up
+ ┃ ┃ ┣ 📜_swim
+ ┃ ┃ ┗ 📜_walk run jump
+ ┃ ┣ 📂other
+ ┃ ┃ ┣ 📜_death
+ ┃ ┃ ┣ 📜_grow up
+ ┃ ┃ ┗ 📜_p balloon
+ ┃ ┣ 📂riding yoshi
+ ┃ ┃ ┣ 📜_eat
+ ┃ ┃ ┣ 📜_idle
+ ┃ ┃ ┣ 📜_pipe horizontal
+ ┃ ┃ ┣ 📜_turn
+ ┃ ┃ ┗ 📜_victory
+ ┃ ┣ 📜_duck
+ ┃ ┣ 📜_fall
+ ┃ ┣ 📜_idle
+ ┃ ┣ 📜_jump
+ ┃ ┣ 📜_kick
+ ┃ ┣ 📜_look up
+ ┃ ┣ 📜_pipe vertical
+ ┃ ┣ 📜_run jump
+ ┃ ┣ 📜_run
+ ┃ ┣ 📜_skid
+ ┃ ┣ 📜_slide
+ ┃ ┣ 📜_spin jump
+ ┃ ┣ 📜_swim
+ ┃ ┣ 📜_victory
+ ┃ ┣ 📜_walk
+ ┃ ┗ 📜_wall run

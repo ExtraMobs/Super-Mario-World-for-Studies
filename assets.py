@@ -20,7 +20,6 @@ def load_assets_to_dict(path):
             folder_dict[item] = load_assets_to_dict(path_temp)
         else:
             folder_dict["_" + item] = GameResources.Surface.load_surface_from_file(path_temp)
-        print(path_temp)
     return folder_dict
 
 
