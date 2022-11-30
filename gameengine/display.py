@@ -24,6 +24,10 @@ class Display:
             pass
 
     @classmethod
+    def get_rect(self):
+        return self.display_surface.get_rect()
+
+    @classmethod
     def get_scale(self):
         return self.ref_scale.xy
 
@@ -44,11 +48,3 @@ class Display:
     @classmethod
     def update_display_from_window(cls):
         cls.set_scale(cls.ref_scale.xy)
-
-    @classmethod
-    def set_background(cls, background_surface):
-        cls.background = background_surface
-
-    @classmethod
-    def update_background_from_display(cls):
-        cls.background = cls.display_surface.convert()

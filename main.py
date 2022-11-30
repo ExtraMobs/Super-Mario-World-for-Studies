@@ -1,17 +1,20 @@
+import math
 import pygame
 
 import assets
-from gameengine import Display, GameEngine, GameResources, Window, Animations
+from gameengine import Display, GameEngine, Window, Resources
 
 
 class Mario(pygame.sprite.DirtySprite):
     def __init__(self) -> None:
         super().__init__()
-        self.animation = Animations.get_animation("mario_small_walk", 5)
-        
+        self.animation = Resources.Animation.get_cache_animation("mario_small_walk")
+
+        self.pos = pygame.Vector2(0)
+        self.offset = pygame.Vector2(0)
+
         self.image = self.animation.get_current_frame()
         self.rect = self.image.get_rect()
-        self.rect.topleft = (10, 10)
         self.dirty = 2
 
     def update(self):
@@ -19,7 +22,14 @@ class Mario(pygame.sprite.DirtySprite):
         self.animation.update(GameEngine.deltatime)
 
         self.image = self.animation.get_current_frame()
-        
+
+        if self.animation.current_frame == 1:
+            self.offset.y = -1
+        else:
+            self.offset.y = 0
+
+        pos = self.pos + self.offset
+        self.rect.topleft = (math.ceil(pos.x), math.ceil(pos.y))
 
 
 class GameManager(pygame.sprite.LayeredDirty):
@@ -41,7 +51,7 @@ class Game:
 
         Window.set_size((720, 405))
         Display.update_display_from_window()
-        Display.update_background_from_display()
+        Display.background = Window.window_surface.copy()
 
         assets.load_assets()
 

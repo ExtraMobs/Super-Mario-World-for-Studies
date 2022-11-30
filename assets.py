@@ -1,8 +1,9 @@
 import os
 
-from gameengine import Animations, GameResources
+from gameengine import Animations, Resources
 
 assets = None
+
 
 class Assets:
     def __init__(self, dict_data: dict):
@@ -20,14 +21,28 @@ def load_assets_to_dict(path):
         if os.path.isdir(path_temp):
             folder_dict[item] = load_assets_to_dict(path_temp)
         else:
-            folder_dict["_" + item] = GameResources.Surface.load_surface_from_file(path_temp)
+            folder_dict["_" + item] = Resources.Surface.load_from_file(path_temp)
     return folder_dict
 
 
 def build_animations():
-    # Animations.add_animation_data("mario_small_walk", Animations.AREA_TYPE, assets.mario.small._walk, (0,0,48,48))
-    Animations.add_animation_data("mario_small_walk", Animations.AREA_TYPE, assets.mario.small._walk, (48,0,48,48))
-    Animations.add_animation_data("mario_small_walk", Animations.AREA_TYPE, assets.mario.small._walk, (96,0,48,48))
+    animation_name = "mario_small_walk"
+    Animations.add_animation_data(
+        animation_name, Animations.AREA_TYPE, assets.mario.small._walk, (48, 0, 48, 48)
+    )
+    Animations.add_animation_data(
+        animation_name, Animations.AREA_TYPE, assets.mario.small._walk, (96, 0, 48, 48)
+    )
+    Resources.Animation.add_cache_animation(animation_name, 10)
+
+    animation_name = "mario_small_run"
+    Animations.add_animation_data(
+        animation_name, Animations.AREA_TYPE, assets.mario.small._run, (48, 0, 48, 48)
+    )
+    Animations.add_animation_data(
+        animation_name, Animations.AREA_TYPE, assets.mario.small._run, (96, 0, 48, 48)
+    )
+    Resources.Animation.add_cache_animation(animation_name, 24)
 
 
 def load_assets():

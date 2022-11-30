@@ -29,6 +29,9 @@ class Animations:
                 to_add = 1
             self.current_frame = (self.current_frame + to_add) % len(self.frames)
 
+    def copy(self):
+        return self.__class__(self.fps, *self.frames)
+
     @classmethod
     def add_animation_data(cls, name, type, *args):
         if name not in cls.animations.keys():
@@ -46,7 +49,10 @@ class Animations:
             animation_type = animation_data["type"]
             data = animation_data["data"]
             if animation_type == cls.FRAME_TYPE:
-                surfaces.append(data[0].convert_alpha())
+                surface = data[0]
+                if frame_copy:
+                    surface = data[0].convert_alpha()
+                surfaces.append(surface)
             elif animation_type == cls.AREA_TYPE:
                 surface = data[0].subsurface(pygame.Rect(data[1]))
                 if len(data) >= 3:

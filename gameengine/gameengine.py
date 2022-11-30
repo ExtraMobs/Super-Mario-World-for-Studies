@@ -12,14 +12,8 @@ class GameEngine:
     scene = None
     request_quit = False
     framerate = 30
-    deltatime = 1/framerate
+    deltatime = 1 / framerate
     clock = pygame.time.Clock()
-
-    @classmethod
-    def set_window_size(cls, size, *flags, update_display=True):
-        Window.set_size(size, *flags)
-        if update_display:
-            Display.update_display_from_window()
 
     @classmethod
     def set_framerate(cls, framerate):
@@ -43,26 +37,37 @@ class GameEngine:
     @classmethod
     def set_scene(cls, scene):
         cls.scene = scene
+        Window.window_surface.fill((0, 0, 0))
 
     @classmethod
     def quit(cls):
         raise SystemExit(0)
 
     @classmethod
+    def update_scene(cls):
+        cls.scene.update()
+
+    @classmethod
+    def draw_scene(cls):
+        if Window._sdl2_window.size != Display.get_size():
+            cls.scene.draw(Display.display_surface, Display.background)
+            pygame.transform.scale(
+                Display.display_surface,
+                Window._sdl2_window.size,
+                Window.window_surface,
+            )
+        else:
+            cls.scene.draw(Window.window_surface, Display.background)
+
+    @classmethod
     def start_loop(cls):
         while True:
             cls.update_events()
-            cls.scene.update()
 
-            if Window._sdl2_window.size != Display.get_size():
-                cls.scene.draw(Display.display_surface, Display.background)
-                pygame.transform.scale(
-                    Display.display_surface,
-                    Window._sdl2_window.size,
-                    Window.window_surface,
-                )
-            else:
-                cls.scene.draw(Window.window_surface, Display.background)
+            if hasattr(cls.scene, "update"):
+                cls.update_scene()
+            if hasattr(cls.scene, "draw"):
+                cls.draw_scene()
 
             pygame.display.update()
             cls.tick_clock()

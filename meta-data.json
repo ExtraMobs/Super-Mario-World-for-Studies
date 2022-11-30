@@ -1,0 +1,14 @@
+{
+    "Animations": {
+        "small": {
+            "walk": {
+                "fps": 10,
+                "frames": 2
+            },
+            "run": {
+                "fps": 24,
+                "frames": 2
+            }
+        }
+    }
+}
